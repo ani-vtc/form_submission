@@ -2,7 +2,7 @@ import express from "express";
 import ViteExpress from "vite-express";
 import path from "path";
 import { fileURLToPath } from "url";
-
+import fs from "fs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -10,6 +10,7 @@ const app = express();
 // Add middleware to parse JSON request bodies
 app.use(express.json());
 
+// API routes must be defined before the catch-all route
 app.get("/hello", (_, res) => {
   res.send("Hello Vite + React + TypeScript!");
 });
@@ -23,11 +24,15 @@ app.post("/form", (req, res) => {
 // In production, serve built frontend files
 if (process.env.NODE_ENV === "production") {
   // Serve static files from dist directory
-  app.use(express.static(path.join(__dirname, "../../dist")));
+  const distPath = path.join(__dirname, "../../dist");
+  if (!fs.existsSync(distPath)) {
+    throw new Error("Dist directory does not exist. Please run 'npm run build' first.");
+  }
+  app.use(express.static(distPath));
   
-  // Handle client-side routing - serve index.html for all non-API routes
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../../dist/index.html"));
+  // Handle client-side routing - serve index.html for all routes that don't match API endpoints
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
   });
   
   const port = Number(process.env.PORT) || 5050;
