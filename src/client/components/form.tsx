@@ -30,10 +30,10 @@ function Form() {
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
-        e.preventDefault();
+        //e.preventDefault();
         form.reason = reasonOptions.find(option => option.value === form.reason)?.label || "";
         console.log(form);
-        fetch(`http://localhost:${process.env.PORT || 5050}/form`, {
+        fetch(window.location.hostname === "localhost" ? `http://localhost:${process.env.PORT || 5050}/form` : `/form`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
