@@ -18,6 +18,15 @@ export async function submitForm(form: any) {
         },
         body: JSON.stringify(body)
     })
+    // Parse the response
+    if (response.ok) {
+        const result = await response.json();
+        return [result];
+      } else {
+        const errorText = await response.text();
+        console.error(`API request failed: ${errorText}`);
+        throw new Error(`API request failed: ${response.status} ${response.statusText}. Body: ${JSON.stringify(body)}` );
+      }
 }
 
 async function googleAuth() {

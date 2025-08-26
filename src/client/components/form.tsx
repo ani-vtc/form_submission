@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./form.css";
 
 let formData = {
-    reason: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -10,6 +9,7 @@ let formData = {
     company: "",
     industry: "",
     comment: "",
+    reason: "",
 }
 
 const reasonOptions = [
