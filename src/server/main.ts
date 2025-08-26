@@ -3,6 +3,8 @@ import ViteExpress from "vite-express";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import { submitForm } from "./backend_connector.js";
+import "./backend_connector.ts";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -15,10 +17,12 @@ app.get("/hello", (_, res) => {
   res.send("Hello Vite + React + TypeScript!");
 });
 
-app.post("/form", (req, res) => {
+app.post("/form", async (req, res) => {
   console.log("form: ", req.body);
-
-  res.send("Form submitted");
+  let result;
+  result = await submitForm(req.body);
+  console.log("Form submitted: " + JSON.stringify(result));
+  res.send("Form submitted: " + JSON.stringify(req.body));
 });
 
 // In production, serve built frontend files
