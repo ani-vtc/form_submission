@@ -7,7 +7,7 @@ export async function submitForm(form: any) {
 
     const body = {
         form: form,
-        timeStamp: new Date().toISOString()
+        timeStamp: new Date().toISOString().slice(0,19).replace("T", " ")
     }
 
     const response = await fetch(`${baseUrl}/internal/form_submission`, {
