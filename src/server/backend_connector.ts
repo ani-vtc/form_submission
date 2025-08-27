@@ -1,4 +1,4 @@
-// constants
+// constants to put in .env
 const PRJ: string = "magnetic-runway-428121"
 
 export async function submitForm(form: any) {
