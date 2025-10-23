@@ -84,66 +84,98 @@ function Form() {
     }
 
     return (
-        <form>
-            <div>
-                <label>
-                    <span>Reason for Contacting Us</span>
-                    <select name="reason" value={form.reason} onChange={handleReasonChange}>
-                        {reasonOptions.map((option) => (
-                            <option key={option.value} value={option.value}>{option.label}</option>
-                        ))}
-                    </select>
-                </label>
+        <>
+            <div className="logo-placeholder">VTCo</div>
+            <div className="container">
+                <div className="left-section">
+                    <div className="eyebrow">CONTACT SALES</div>
+                    <h1>Let's build together</h1>
+                    <p>
+                        Whether you're a founding partner, school sponsor, realtor, or exploring our civic intelligence tools, we'd love to hear from you. Tell us a little about your goals and we'll connect you with the right person on our team.
+                    </p>
+                </div>
+                <div className="right-section">
+                    <form>
+                        <div>
+                            <label>Reason for inquiry</label>
+                            <select className="reason-select" name="reason" value={form.reason} onChange={handleReasonChange}>
+                                <option value="">Founding partners</option>
+                                {reasonOptions.map((option) => (
+                                    <option className="reason-option" key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <div className="form-row">
+                            <div>
+                                <label>First name*</label>
+                                <input type="text" name="firstName" value={form.firstName} onChange={handleChange} placeholder="John" />
+                            </div>
+                            <div>
+                                <label>Last name*</label>
+                                <input type="text" name="lastName" value={form.lastName} onChange={handleChange} placeholder="Doe" />
+                            </div>
+                        </div>
+
+                        <div className="form-row">
+                            <div>
+                                <label>Email*</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    className={errors.email ? "error" : ""}
+                                    placeholder="john@acme.com"
+                                />
+                                {errors.email && <span className="error-message">{errors.email}</span>}
+                            </div>
+                            <div>
+                                <label>Phone number</label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    value={form.phone}
+                                    onChange={handleChange}
+                                    className={errors.phone ? "error" : ""}
+                                    placeholder="+1 777-777-7777"
+                                />
+                                {errors.phone && <span className="error-message">{errors.phone}</span>}
+                            </div>
+                        </div>
+
+                        <div className="form-row">
+                            <div>
+                                <label>Company name</label>
+                                <input type="text" name="company" value={form.company} onChange={handleChange} placeholder="Acme Inc" />
+                            </div>
+                            <div>
+                                <label>Industry</label>
+                                <input type="text" name="industry" value={form.industry} onChange={handleChange} placeholder="Sales" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>How can we help?*</label>
+                            <textarea
+                                name="comment"
+                                value={form.comment}
+                                onChange={handleChange}
+                                placeholder="Tell us why you're reaching out"
+                                maxLength={300}
+                            />
+                            <div className="character-limit">Max 300 characters</div>
+                        </div>
+
+                        <button type="submit" onClick={handleSubmit}>Submit →</button>
+
+                        <div className="terms-text">
+                            By clicking submit, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div>
-                <label>First Name</label>
-                <input type="text" name="firstName" value={form.firstName} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Last Name</label>
-                <input type="text" name="lastName" value={form.lastName} onChange={handleChange} />
-            </div>
-            
-            <div>
-                <label>Email</label>
-                <input 
-                    type="email" 
-                    name="email" 
-                    value={form.email} 
-                    onChange={handleChange}
-                    className={errors.email ? "error" : ""} 
-                />
-                {errors.email && <span className="error-message">{errors.email}</span>}
-            </div>
-            
-            <div>
-                <label>Phone</label>
-                <input 
-                    type="tel" 
-                    name="phone" 
-                    value={form.phone} 
-                    onChange={handleChange}
-                    className={errors.phone ? "error" : ""} 
-                />
-                {errors.phone && <span className="error-message">{errors.phone}</span>}
-            </div>
-            
-            <div>
-                <label>Company</label>
-                <input type="text" name="company" value={form.company} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Industry</label>
-                <input type="text" name="industry" value={form.industry} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Comment</label>
-                <textarea name="comment" value={form.comment} onChange={handleChange} />
-            </div>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-            
-            
-        </form>
+        </>
     )
 }
 
