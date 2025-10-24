@@ -126,7 +126,7 @@ function Form() {
                                     value={form.email}
                                     onChange={handleChange}
                                     className={errors.email ? "error" : ""}
-                                    placeholder="john@acme.com"
+                                    placeholder="john@something.com"
                                 />
                                 {errors.email && <span className="error-message">{errors.email}</span>}
                             </div>
@@ -147,7 +147,7 @@ function Form() {
                         <div className="form-row">
                             <div>
                                 <label>Company name</label>
-                                <input type="text" name="company" value={form.company} onChange={handleChange} placeholder="Acme Inc" />
+                                <input type="text" name="company" value={form.company} onChange={handleChange} placeholder="Company Inc" />
                             </div>
                             <div>
                                 <label>Industry</label>
