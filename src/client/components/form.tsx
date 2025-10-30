@@ -19,6 +19,9 @@ const reasonOptions = [
     { value: "1", label: "I have a question about the product" },
     { value: "2", label: "I have a question about the service" },
     { value: "3", label: "I have a question about the website" },
+    { value: "4", label: "Sponsor a school" },
+    { value: "5", label: "DA Territory Intelligence" },
+    { value: "6", label: "Pattern Recognition Workshop" },
 ]
 
 function Form() {
@@ -26,7 +29,8 @@ function Form() {
     const [errors, setErrors] = useState({
         email: "",
         phone: "",
-    });     
+    });
+    const [submitted, setSubmitted] = useState(false);     
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -80,6 +84,8 @@ function Form() {
         });
         setForm(formData);
         setErrors({ email: "", phone: "" });
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
         console.log(formData)
     }
 
@@ -96,6 +102,8 @@ function Form() {
                 </div>
                 <div className="right-section">
                     <form>
+                        {submitted && <div className="success-message">Thank you! Your form has been submitted successfully.</div>}
+
                         <div>
                             <label>Reason for inquiry</label>
                             <select className="reason-select" name="reason" value={form.reason} onChange={handleReasonChange}>
