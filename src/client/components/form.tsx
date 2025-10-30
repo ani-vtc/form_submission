@@ -85,7 +85,7 @@ function Form() {
         setForm(formData);
         setErrors({ email: "", phone: "" });
         setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 5000);
+        //setTimeout(() => setSubmitted(false), 5000);
         console.log(formData)
     }
 
