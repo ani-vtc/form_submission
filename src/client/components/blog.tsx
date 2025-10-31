@@ -20,7 +20,7 @@ const blogPosts: BlogPost[] = [
         title: "Blog title text",
         excerpt: "Lorem ipsum dolor amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh...",
         image: "/placeholder-blog.jpg",
-        tags: ["Best Sellers", "Post", "Readmore"]
+        tags: ["BC"]
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ const blogPosts: BlogPost[] = [
         title: "Understanding Modern Web Development",
         excerpt: "In today's rapidly evolving digital landscape, understanding modern web development practices is essential for building robust applications...",
         image: "/placeholder-blog.jpg",
-        tags: ["Categories", "Post"]
+        tags: ["Schools"]
     },
     {
         id: 3,
@@ -36,7 +36,7 @@ const blogPosts: BlogPost[] = [
         title: "The Power of Visual Thinking",
         excerpt: "Visual thinking transforms complex ideas into clear, actionable insights. This cognitive approach leverages our brain's natural ability...",
         image: "/placeholder-blog.jpg",
-        tags: ["Readmore", "Categories"]
+        tags: ["Vancouver"]
     }
 ];
 
@@ -62,7 +62,7 @@ function Blog() {
                     <div className="blog-eyebrow">RESOURCES</div>
                     <h1>Knowledge you can put to work</h1>
                     <p>
-                        From civiv data frameworks to product updates - our resources help planners, policymakers and communities make sense of complex systems   
+                        From civic data frameworks to product updates - our resources help planners, policymakers and communities make sense of complex systems   
                     </p>
                 </div>
             </div>
