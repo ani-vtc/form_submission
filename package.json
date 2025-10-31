@@ -9,13 +9,15 @@
     "build": "vite build"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "express": "^5.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.9.5",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
-    "vite-express": "*",
-    "cross-env": "^7.0.3"
+    "vite-express": "*"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
