@@ -23,6 +23,16 @@
     color: #000;
     text-decoration: none;
     margin-right: 60px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.header-logo img {
+    width: 4.5rem;
+    height: 4rem;
+    border-radius: 999em;
 }
 
 .header-nav {
