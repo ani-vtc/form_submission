@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import Header from "./Header";
 import "./BlogPost.css";
 
 interface BlogMetadata {
@@ -137,9 +138,7 @@ function BlogPost() {
 
     return (
         <div className="blog-post-container">
-            <div className="blog-post-logo">
-                <Link to="/">VTCo</Link>
-            </div>
+            <Header />
 
             <div className="blog-post-header">
                 <Link to="/blog" className="back-link">← Back to Blog</Link>

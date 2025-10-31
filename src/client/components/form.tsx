@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "./Header";
 import "./form.css";
 
 let formData = {
@@ -91,7 +92,7 @@ function Form() {
 
     return (
         <>
-            <div className="logo-placeholder">VTCo</div>
+            <Header />
             <div className="container">
                 <div className="left-section">
                     <div className="eyebrow">CONTACT SALES</div>

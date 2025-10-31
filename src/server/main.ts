@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(distPath));
   
   // Handle client-side routing - serve index.html for all routes that don't match API endpoints or static files
-  app.get("*", (_, res) => {
+  app.get("/", (_, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
   

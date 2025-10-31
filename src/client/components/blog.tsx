@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 import "./blog.css";
 
 interface BlogPost {
@@ -54,7 +55,7 @@ function Blog() {
 
     return (
         <div className="blog-container">
-            <div className="blog-logo">VTCo</div>
+            <Header />
 
             <div className="blog-hero">
                 <div className="blog-hero-content">
