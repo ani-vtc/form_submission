@@ -3,7 +3,7 @@ title: "Understanding Modern Web Development"
 date: "January 20, 2025"
 author: "John Doe"
 image: "/placeholder-blog.jpg"
-tags: ["Categories", "Post"]
+tags: ["Categories", "Schools"]
 ---
 
 In today's rapidly evolving digital landscape, understanding modern web development practices is essential for building robust and scalable applications.
